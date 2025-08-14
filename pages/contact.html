@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系方式 - 个人能力地图</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .back-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        .content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn" onclick="window.close()">← 返回主页</button>
+        
+        <h1>📧 联系方式</h1>
+        
+        <div class="content">
+            <p>欢迎通过各种方式与我联系，我期待与您进行深入的交流和合作。</p>
+            
+            <div class="highlight">
+                <h3>联系方式：</h3>
+                <ul>
+                    <li>邮箱：your.email@example.com</li>
+                    <li>微信：your_wechat_id</li>
+                    <li>LinkedIn：linkedin.com/in/yourprofile</li>
+                    <li>GitHub：github.com/yourusername</li>
+                </ul>
+            </div>
+            
+            <p>我欢迎各种形式的合作机会，包括技术交流、项目合作、职业发展等。我相信通过合作能够创造更大的价值。</p>
+            
+            <p>如果您有任何问题或建议，请随时联系我。我会尽快回复，期待与您的交流！</p>
+        </div>
+    </div>
+</body>
+</html>

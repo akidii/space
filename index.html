@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人能力地图 - 九宫格探索</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">个人能力地图</h1>
+            <p class="subtitle">点击九宫格，探索我的能力世界</p>
+        </header>
+        
+        <main class="main-content">
+            <div class="puzzle-grid" id="puzzleGrid">
+                <!-- 九宫格拼图块 -->
+                <div class="puzzle-piece" data-page="execution" data-index="0">
+                    <div class="piece-content">
+                        <div class="piece-icon">🚀</div>
+                        <h3>解锁执行力</h3>
+                        <p>高效执行，使命必达</p>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-page="product" data-index="1">
+                    <div class="piece-content">
+                        <div class="piece-icon">💡</div>
+                        <h3>揭示产品思维</h3>
+                        <p>用户导向，价值创造</p>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-page="analysis" data-index="2">
+                    <div class="piece-content">
+                        <div class="piece-icon">🔍</div>
+                        <h3>洞察分析能力</h3>
+                        <p>数据驱动，深度思考</p>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-page="tools" data-index="3">
+                    <div class="piece-content">
+                        <div class="piece-icon">🛠️</div>
+                        <h3>掌握工具应用</h3>
+                        <p>技术赋能，效率提升</p>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-page="ideas" data-index="4">
+                    <div class="piece-content">
+                        <div class="piece-icon">💭</div>
+                        <h3>捕捉想法碎片</h3>
+                        <p>创意无限，灵感迸发</p>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-page="learning" data-index="5">
+                    <div class="piece-content">
+                        <div class="piece-icon">📚</div>
+                        <h3>沉淀学习心得</h3>
+                        <p>持续成长，知识积累</p>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-page="about" data-index="6">
+                    <div class="piece-content">
+                        <div class="piece-icon">👤</div>
+                        <h3>关于我</h3>
+                        <p>个人介绍，成长历程</p>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-page="projects" data-index="7">
+                    <div class="piece-content">
+                        <div class="piece-icon">🎯</div>
+                        <h3>项目作品</h3>
+                        <p>作品展示，技术实践</p>
+                    </div>
+                </div>
+                
+                <div class="puzzle-piece" data-page="contact" data-index="8">
+                    <div class="piece-content">
+                        <div class="piece-icon">📧</div>
+                        <h3>联系方式</h3>
+                        <p>沟通交流，合作共赢</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="footer">
+            <p>&copy; 2024 个人能力地图. 探索无限可能.</p>
+        </footer>
+    </div>
+    
+    <!-- 完成弹窗 -->
+    <div class="completion-modal" id="completionModal">
+        <div class="modal-content">
+            <div class="modal-icon">🎉</div>
+            <h2>恭喜完成探索！</h2>
+            <p>你已经全面探索了我的个人能力地图！</p>
+            <p>每个拼图块都代表着我能力的一个维度，</p>
+            <p>感谢你的耐心探索，希望我们能有机会深入交流！</p>
+            <button class="modal-close-btn" id="modalCloseBtn">继续探索</button>
+        </div>
+    </div>
+    
+    <!-- 背景图案容器 -->
+    <div class="background-pattern" id="backgroundPattern"></div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

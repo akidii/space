@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>示例：HTML分片集成 - 个人能力地图</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .back-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .section-nav {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .section-nav h3 {
+            margin: 0 0 15px 0;
+            color: #667eea;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .nav-link {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            color: #667eea;
+            border: 1px solid #e9ecef;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        
+        .nav-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .nav-link.active {
+            background: #667eea;
+            color: white;
+        }
+        
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .content-section h2 {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .content-section h3 {
+            color: #495057;
+            margin-top: 30px;
+        }
+        
+        .content-section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .content-section strong {
+            color: #495057;
+        }
+        
+        .content-section table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        
+        .content-section th,
+        .content-section td {
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            text-align: left;
+        }
+        
+        .content-section th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .document-images {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+        
+        .document-images h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+        
+        .document-images img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .document-images p {
+            margin-top: 8px;
+            color: #666;
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn" onclick="window.close()">← 返回主页</button>
+        
+        <div class="header">
+            <h1>🚀 揭示产品思维</h1>
+            <p>产品需求文档与产品分析报告的深度解析</p>
+        </div>
+        
+        <div class="content">
+            <!-- 导航区域 -->
+            <div class="section-nav">
+                <h3>📚 内容导航</h3>
+                <div class="nav-links" id="navLinks">
+                    <!-- 动态生成导航链接 -->
+                </div>
+            </div>
+            
+            <!-- 内容区域 -->
+            <div id="contentArea">
+                <div class="loading">
+                    <p>正在加载内容...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 内容分片数据（这里应该从实际生成的文件中读取）
+        const contentSections = {
+            'part1': {
+                title: '产品需求文档 - 第一部分',
+                content: `
+                    <h2>产品需求文档</h2>
+                    <h1><strong>产品需求文档 (PRD): 即刻导航 (Act-Nav)</strong></h1>
+                    <p><strong>文档版本:</strong> 1.0</p>
+                    <p><strong>发布日期:</strong> 2025年8月4日</p>
+                    <p><strong>负责人:</strong> 艾柯代</p>
+                    
+                    <h2>1. 产品愿景与概述 (Product Vision & Overview)</h2>
+                    <h3>1.1 产品愿景</h3>
+                    <p>成为AI重度用户不可或缺的对话导航工具，将线性的AI对话流转化为结构化的知识索引，最大化人机协作效率。</p>
+                    
+                    <h3>1.2 产品概述</h3>
+                    <p>"即刻导航 (Act-Nav)"是一款浏览器插件，旨在解决用户与AI（如ChatGPT, Claude等）进行长对话时，难以回溯和定位历史信息的核心痛点。它通过在页面内自动生成一个可交互的"对话目录"，让用户可以一键跳转到任意历史提问点，从而节省时间、保护心流，并高效沉淀对话中产生的知识。</p>
+                `
+            },
+            'part2': {
+                title: '产品需求文档 - 第二部分',
+                content: `
+                    <h2>2. 目标用户与痛点 (Target User & Pain Points)</h2>
+                    <h3>2.1 用户画像 (User Persona)</h3>
+                    <p><strong>姓名：</strong> 李欣 (Li Xin)</p>
+                    <p><strong>职业：</strong> 28岁的市场研究分析师，就职于快节奏的科技咨询公司。</p>
+                    <p><strong>工作日常：</strong> 每日高强度使用AI进行深度"对话式研究"，对话轮次常超过100轮，内容复杂，关联性强。</p>
+                    
+                    <h3>2.2 核心痛点 (Pains)</h3>
+                    <p><strong>记忆断层与思路中断：</strong> 无法快速回忆起对话早期的关键信息，查找过程会打断分析思路。</p>
+                    <p><strong>低效的"滚动考古"：</strong> 浪费大量时间进行机械的、毫无技术含量的滚动和扫视，挫败感强。</p>
+                    <p><strong>上下文关联困难：</strong> 无法方便地对比、引用在时间线上相距甚远但逻辑上紧密相关的两段对话。</p>
+                    <p><strong>引用障碍：</strong> 在撰写报告时，难以从庞杂的对话历史中找到特定的引用内容。</p>
+                `
+            },
+            'part3': {
+                title: '产品分析报告 - 第一部分',
+                content: `
+                    <h2>产品分析报告</h2>
+                    <h1>我的想法：AI对话导航插件</h1>
+                    <p>在和ai对话的时候，有时候问的问题很多，对话很长，想找之前问的问题的时候要上拉很久。</p>
+                    <p>有没有可能做一个插件，像是用户问题目录，然后点击之前的问题就能回到当时的对话。</p>
+                    <p>目前能替代的好像就只有浏览器自带的页面搜索功能，但是它只能通过关键词搜索来实现，如果关键词出现多次需要一一排查。</p>
+                    
+                    <p>下面基于三个核心原则（MVP敏捷迭代、产品思维三维度、用户痛点/痒点/爽点）详细解析：</p>
+                    
+                    <h4>1. 用户痛点/痒点/爽点原则</h4>
+                    <p><strong>选择理由：</strong> 明确区分用户需求的优先级，避免过度开发非核心功能。</p>
+                    
+                    <h4>2. 产品思维三维度（用户/技术/商业）</h4>
+                    <p><strong>选择理由：</strong> 该产品需平衡用户需求（高效检索）、技术可行性（语义模型成本）、商业价值（变现模式）。</p>
+                `
+            },
+            'part4': {
+                title: '产品分析报告 - 第二部分',
+                content: `
+                    <h2>二、GitHub Copilot产品分析</h2>
+                    <h3>1. 问题域 & 方案域</h3>
+                    <p><strong>问题域：</strong></p>
+                    <p>开发者痛点：</p>
+                    <ul>
+                        <li>重复性代码编写耗时（如样板代码、常见算法）</li>
+                        <li>上下文切换（查阅文档、搜索解决方案打断工作流）</li>
+                        <li>学习新语言/框架的成本高</li>
+                    </ul>
+                    <p><strong>核心问题：</strong> 开发效率瓶颈，而非单纯的"代码补全工具"。</p>
+                    
+                    <h3>2. 价值主张</h3>
+                    <p><strong>目标用户：</strong> 程序员（尤其是全栈开发者、初创团队、教育用户）。</p>
+                    <p><strong>用户痛点：</strong></p>
+                    <ul>
+                        <li>低效的重复编码</li>
+                        <li>碎片化学习成本</li>
+                        <li>复杂业务逻辑实现困难</li>
+                    </ul>
+                `
+            }
+        };
+
+        // 初始化页面
+        function initPage() {
+            generateNavigation();
+            showSection('part1');
+        }
+
+        // 生成导航链接
+        function generateNavigation() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.innerHTML = '';
+            
+            Object.keys(contentSections).forEach(part => {
+                const link = document.createElement('a');
+                link.href = '#';
+                link.className = 'nav-link';
+                link.textContent = contentSections[part].title;
+                link.onclick = (e) => {
+                    e.preventDefault();
+                    showSection(part);
+                    updateActiveNav(part);
+                };
+                navLinks.appendChild(link);
+            });
+        }
+
+        // 显示指定部分
+        function showSection(part) {
+            const contentArea = document.getElementById('contentArea');
+            const section = contentSections[part];
+            
+            if (section) {
+                contentArea.innerHTML = `
+                    <div class="content-section active">
+                        ${section.content}
+                    </div>
+                `;
+            } else {
+                contentArea.innerHTML = `
+                    <div class="error">
+                        <strong>错误：</strong> 无法加载内容部分 "${part}"
+                    </div>
+                `;
+            }
+        }
+
+        // 更新导航激活状态
+        function updateActiveNav(activePart) {
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent === contentSections[activePart].title) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', initPage);
+    </script>
+</body>
+</html>

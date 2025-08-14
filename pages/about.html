@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - 个人能力地图</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        .back-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+        }
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        .content {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+        .highlight {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="back-btn" onclick="window.close()">← 返回主页</button>
+        
+        <h1>👤 关于我</h1>
+        
+        <div class="content">
+            <p>我是一名充满激情的前端开发工程师，专注于创造优秀的用户体验和高质量的代码。</p>
+            
+            <div class="highlight">
+                <h3>我的特点：</h3>
+                <ul>
+                    <li>技术热情：热爱编程，持续学习新技术</li>
+                    <li>用户导向：始终以用户体验为核心</li>
+                    <li>团队协作：善于沟通，乐于分享</li>
+                    <li>创新思维：勇于尝试，追求卓越</li>
+                </ul>
+            </div>
+            
+            <p>在多年的工作经历中，我参与过多个大型项目的开发，积累了丰富的实战经验。我不仅关注技术实现，更注重产品的商业价值和用户体验。</p>
+            
+            <p>我相信技术能够改变世界，而我有幸成为这个变革的参与者。我期待与更多优秀的人一起，创造更美好的数字世界。</p>
+        </div>
+    </div>
+</body>
+</html>
