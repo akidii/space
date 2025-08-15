@@ -57,24 +57,85 @@
     <div class="container">
         <button class="back-btn" onclick="window.close()">← 返回主页</button>
         
-        <h1>🚀 解锁执行力</h1>
+        <h1>🚀 解锁执行力--AI对话辅助目录插件开发总结</h1>
         
         <div class="content">
-            <p>执行力是成功的关键要素，它代表着将想法转化为行动的能力。</p>
-            
-            <div class="highlight">
-                <h3>我的执行力特点：</h3>
+                <h2>项目背景</h2>
+                <p>在日常使用 AI（DeepSeek、Kimi等）时，用户常遇到：</p>
                 <ul>
-                    <li>目标导向：设定明确目标并制定可执行计划</li>
-                    <li>时间管理：高效利用时间，提高工作效率</li>
-                    <li>持续改进：不断优化流程，追求卓越</li>
-                    <li>结果导向：注重实际成果，不空谈理论</li>
+                    <li>对话内容分散在多个平台，难以统一管理。</li>
+                    <li>想快速回顾某个问题及答案，需要手动在长对话中翻找。</li>
+                    <li>缺少将对话内容提炼为结构化知识的工具。</li>
+                </ul>
+                <p>为此，我设计并开发了一个 <strong>跨平台 AI 对话目录 + 知识卡片管理插件</strong>：先解决“快速定位”，再用 AI 实现“对话精华沉淀与复用”。</p>
+
+            <div class="content">
+                <h3>阶段一：基础功能（对话目录与跳转）</h3>
+                <ul>
+                    <li><strong>对话解析与目录生成：</strong>支持 DeepSeek、Kimi、豆包三平台识别用户提问，提取问题文本。</li>
+                    <li><strong>侧边栏目录：</strong>自动在侧边栏形成问题目录，点击可跳转到原对话位置。</li>
+                    <li><strong>平台适配：</strong>针对各平台 DOM 结构做稳健解析，保证列表与定位准确。</li>
                 </ul>
             </div>
             
-            <p>在项目管理中，我善于将复杂任务分解为可执行的小步骤，确保每个环节都能按时完成。通过建立清晰的里程碑和检查点，我能够有效监控项目进度并及时调整策略。</p>
-            
-            <p>执行力不仅仅是完成任务，更重要的是在过程中保持专注和坚持，即使遇到困难也能找到解决方案并持续推进。</p>
+            <div class="content">
+                <h3>阶段二：AI 赋能（知识卡片）</h3>
+                <ul>
+                    <li><strong>知识卡片提炼：</strong>调用 SiliconFlow + DeepSeek-V3 模型，结合用户提问与 AI 回答，从完整对话生成 3–5 张卡片（标题 / 摘要 / 标签）。</li>
+                    <li><strong>统一格式：</strong>跨平台统一调用与输出格式，便于后续检索与归档。</li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <h3>阶段三：存储与体验</h3>
+                <ul>
+                    <li><strong>Supabase 存储：</strong>卡片可保存、读取、更新；弹窗集中展示并支持编辑。</li>
+                    <li><strong>信息架构：</strong>侧边栏保留目录与“卡片数量提示”，弹窗作为卡片主视图。</li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <h2>技术亮点</h2>
+                <div class="grid">
+                    <div class="pill">🧩 跨平台 DOM 适配器</div>
+                    <div class="pill">🔐 Supabase RLS 策略与表结构对齐</div>
+                    <div class="pill">🆔 唯一 ID 生成（抗并发）</div>
+                    <div class="pill">🪄 提示词优化与上下文拼接</div>
+                    <div class="pill">🧱 侧边栏 / 弹窗解耦，可扩展</div>
+                    <div class="pill">📦 统一数据模型（标题/摘要/标签/分类）</div>
+                </div>
+            </div>
+
+            <div class="highlights">
+                <h2>开发中遇到的主要问题与解决方法</h2>
+
+                <h3>问题 ：目录项 ID 在高并发下重复</h3>
+                <p><strong>现象：</strong>用户快速连续提问时，两个目录项出现相同 ID（依赖毫秒时间戳导致冲突）。</p>
+                <p><strong>原因：</strong><code>generateQuestionId()</code> 仅用 <code>Date.now()</code> 作为哈希输入；同一毫秒内多次调用产生相同值。</p>
+                <p><strong>解决方法：</strong>在时间戳基础上加入随机片段，保证同毫秒内也唯一。</p>
+                <pre><code>function generateQuestionId() {
+            const timestamp = Date.now();
+            const randomPart = Math.random().toString(36).substr(2, 9);
+            const hash = simpleHash(`${timestamp}-${randomPart}`);
+            return `act-nav-${timestamp}-${hash}`;
+          }</code></pre>
+            </div>
+
+            <div class="content">
+                <h2>项目成果</h2>
+                <ul>
+                    <li>实现从 <strong>多平台对话 → 目录定位 → AI 知识卡片提炼 → Supabase 存储与弹窗管理</strong> 的完整闭环。</li>
+                    <li>显著降低重复查找与手动整理成本，沉淀可复用的结构化知识。</li>
+                    <li>架构清晰、组件解耦，便于扩展搜索、分类、导出（MD/Notion/Obsidian）等能力。</li>
+                </ul>
+            </div>
+
+            <div class="content">
+                <h2>未来展望</h2>
+                <p>随着 AI 能力的不断进步，我计划进一步优化知识卡片提炼质量，并探索更多 AI 辅助工作流。</p>
+                <p>同时，我期待与更多开发者交流合作，共同探索 AI 在知识管理领域的更多可能性。</p>
+                <p>插件URL：待上架到谷歌商店</p>
+            </div>
         </div>
     </div>
 </body>
