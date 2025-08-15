@@ -61,13 +61,14 @@
 <div class="content"><h2>📄 产品需求文档</h2><p>产品需求文档 (PRD): 即刻导航 (Act-Nav)</p>
 <p>文档版本: 1.0</p>
 <p>发布日期: 2025年8月4日</p>
-<p>负责人: 艾柯代</p>
-<p>1. 产品愿景与概述 (Product Vision &amp; Overview)</p>
+
+<h3>1. 产品愿景与概述 (Product Vision &amp; Overview)</h3>
 <p>1.1 产品愿景</p>
 <p>成为AI重度用户不可或缺的对话导航工具，将线性的AI对话流转化为结构化的知识索引，最大化人机协作效率。</p>
 <p>1.2 产品概述</p>
 <p>“即刻导航 (Act-Nav)”是一款浏览器插件，旨在解决用户与AI（如ChatGPT, Claude等）进行长对话时，难以回溯和定位历史信息的核心痛点。它通过在页面内自动生成一个可交互的“对话目录”，让用户可以一键跳转到任意历史提问点，从而节省时间、保护心流，并高效沉淀对话中产生的知识。</p>
-<p>2. 目标用户与痛点 (Target User &amp; Pain Points)</p>
+
+<h3>2. 目标用户与痛点 (Target User &amp; Pain Points)</h3>
 <p>2.1 用户画像 (User Persona)</p>
 <p>姓名： 李欣 (Li Xin)</p>
 <p>职业： 28岁的市场研究分析师，就职于快节奏的科技咨询公司。</p>
@@ -77,41 +78,39 @@
 <p>低效的“滚动考古”： 浪费大量时间进行机械的、毫无技术含量的滚动和扫视，挫败感强。</p>
 <p>上下文关联困难： 无法方便地对比、引用在时间线上相距甚远但逻辑上紧密相关的两段对话。</p>
 <p>引用障碍： 在撰写报告时，难以从庞杂的对话历史中找到特定的引用内容。</p>
-<p>3. 用户场景与体验旅程 (User Scenario &amp; Experience Journey)</p>
+
+<h3>3. 用户场景与体验旅程 (User Scenario &amp; Experience Journey)</h3>
 <p>3.1 典型场景</p>
 <p>场景名称： 替代蛋白市场分析报告的冲刺故事： 分析师李欣在撰写一份紧急报告时，与AI进行了长达百轮的对话。当她需要将对话后期的“消费者接受度”与对话前期的“技术专利壁垒”关联时，她没有通过费力滚动，而是直接通过“即刻导航”的目录，点击了前期问题，瞬间跳转到目标位置，无缝地将两个信息点结合，得出了更深刻的洞察。</p>
 <p>3.2 用户体验旅程</p>
 <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;"><tr><td>阶段 (Stage)</td><td>用户行为 (User Action)</td><td>用户思想 (User Thought)</td><td>情感曲线 (Emotion)</td></tr><tr><td>发现与安装</td><td>因滚动查找而沮丧，搜索并发现“即刻导航”，点击安装。</td><td>“又来了，找个东西这么麻烦！这个插件看起来就是我想要的。”</td><td>😫 -&gt; 🤔</td></tr><tr><td>首次使用</td><td>刷新ChatGPT，看到自动出现的目录，尝试点击，成功跳转。</td><td>“哇，无缝集成，看起来很舒服。真的能用，太棒了！”</td><td>😊 -&gt; 😄</td></tr><tr><td>场景触发</td><td>在长对话中，需要回溯查找旧信息。</td><td>“对话好长，有点晕了。直接看右边的目录就行。”</td><td>😎</td></tr><tr><td>任务执行</td><td>在目录中定位问题并点击，窗口瞬间平滑滚动到位。</td><td>“就是这个！太快了，简直是即时传送。思路接上了。”</td><td>🤩</td></tr><tr><td>价值感知</td><td>几秒内完成信息关联，心流未中断，写出高质量分析。</td><td>“这插件太值了！为我节省了大量时间和精力，效率倍增。”</td><td>🥰</td></tr><tr><td>习惯养成</td><td>在所有长对话中都下意识依赖“即刻导航”，并向同事推荐。</td><td>“没有这个目录，我都不知道该怎么跟AI聊超过20轮了。”</td><td>💪</td></tr></table>
-<p>4. 产品定位与价值主张 (Positioning &amp; Value Proposition)</p>
+
+<h3>4. 产品定位与价值主张 (Positioning &amp; Value Proposition)</h3>
 <p>4.1 核心定位</p>
 <p>做“手术刀”，不做“瑞士军刀”。我们是市面上最轻量、最优雅、最专注的AI长对话导航器。</p>
 <p>4.2 价值主张</p>
 <p>时间的绝对节省： 从“费力滚动几分钟”到“点击一下，瞬间定位”。</p>
 <p>心流的无缝保持： 在上下文间自由跳转，不中断创造性思路。</p>
 <p>知识的结构化管理： 将杂乱对话流自动转化为清晰的知识大纲。</p>
-<p>5. MVP 核心功能规格 (MVP Core Feature Specifications)</p>
+
+<h3>5. MVP 核心功能规格 (MVP Core Feature Specifications)</h3>
 <table border="1" cellpadding="5" cellspacing="0" style="border-collapse: collapse; width: 100%;"><tr><td>#</td><td>功能名称</td><td>详细规格</td></tr><tr><td>1</td><td>自动注入与激活</td><td>在 chat.openai.com 等目标域名加载时，自动注入侧边栏UI。</td></tr><tr><td>2</td><td>实时目录生成</td><td>监听用户输入框的提交事件，获取问题文本，并将其添加为目录中的新条目。</td></tr><tr><td>3</td><td>锚点定位与平滑跳转</td><td>点击目录条目，页面平滑滚动至对应问答在主窗口的位置。</td></tr><tr><td>4</td><td>界面可收缩</td><td>提供一个开关按钮，用于展开/收起侧边栏。插件会记住用户的偏好状态。</td></tr><tr><td>5</td><td>深浅模式自适应</td><td>自动检测宿主页面的颜色模式，并应用匹配的配色方案。</td></tr></table>
-<p>6. 界面设计与交互规范 (UI/UX Design &amp; Interaction Specs)</p>
+
+<h3>6. 界面设计与交互规范 (UI/UX Design &amp; Interaction Specs)</h3>
 <p>设计调性： 原生 (Native), 无形 (Invisible), 高效 (Efficient)。</p>
 <p>整体风格： 极简主义，UI元素与宿主网站（如ChatGPT）的设计语言保持高度一致。</p>
 <p>布局位置： 固定于浏览器窗口右侧，宽度固定（约240px），不干扰主要内容区。</p>
 <p>配色方案： 以中性灰为主，自动适配深浅模式。交互点缀色采用柔和、不刺眼的蓝色。</p>
 <p>字体排版： 完全继承宿主网站的字体、字号和行间距。</p>
 <p>交互方式： 响应迅速，反馈清晰（如悬浮效果），动画平滑不突兀。</p>
-<p>7. 关键页面设计分析 (Key Page/View Design Analysis)</p>
+
+<h3>7. 关键页面设计分析 (Key Page/View Design Analysis)</h3>
 <p>7.1 页面一：对话目录侧边栏 (In-Page Sidebar)</p>
 <p>主要功能： 实时展示对话目录、点击导航、收起与展开。</p>
-<p>前端组件分解：</p>
-<p><sidebarcontainer> <sidebarheader> <title text="对话目录"></title> <collapsebutton></collapsebutton> </sidebarheader> <directorylist>    {questions.map(q =&gt; <directoryitem question="{q}"></directoryitem>)}  </directorylist></sidebarcontainer></p>
-<p>Tailwind CSS 初步应用:</p>
-<p><a class="block p-2.5 text-sm text-gray-700 dark:text-gray-300 truncate cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md" href="#anchor-id">  一个被截断的超长问题...</a></p>
 <p>7.2 页面二：浏览器工具栏弹出窗口 (Browser Toolbar Popup)</p>
 <p>主要功能： 显示插件激活状态、版本信息、提供反馈渠道。</p>
-<p>前端组件分解：</p>
-<p><popupcontainer> <popupheader></popupheader> <statusindicator isactive="{true}"></statusindicator> <actionlink text="报告问题"></actionlink></popupcontainer></p>
-<p>Tailwind CSS 初步应用:</p>
-<p><div class="p-2 my-3 text-center text-sm font-medium text-green-800 bg-green-100 dark:text-green-100 dark:bg-green-900 rounded-lg">  已在当前页面激活</div></p>
-<p>8. 产品主页设计 (Product Homepage Design)</p>
+
+<h3>8. 产品主页设计 (Product Homepage Design)</h3>
 <p>产品主页（Landing Page）是用户下载安装插件的入口，设计应具备说服力、简洁且聚焦。</p>
 <p>8.1 页面目标</p>
 <p>清晰传达产品的核心价值。</p>
@@ -121,11 +120,7 @@
 <p>导航栏 (Navigation Bar)</p>
 <p>内容： Logo, 产品名“即刻导航”，“添加到 Chrome” (主要CTA)。</p>
 <p>设计： 简洁，固定在顶部。</p>
-<p>英雄区 (Hero Section)</p>
-<p>主标题 (H1): 告别无限滚动，掌控你的AI长对话。</p>
-<p>副标题: “即刻导航”为ChatGPT/Claude生成实时对话目录，让你瞬间定位任何历史信息，心流不再中断。</p>
-<p>视觉元素: 一个GIF动画，循环播放：一个混乱的长对话 -&gt; 鼠标移到右侧 -&gt; “即刻导航”侧边栏滑出 -&gt; 点击一个早期问题 -&gt; 页面平滑滚动到位。</p>
-<p>CTA: “立即免费安装” 按钮。</p>
+
 <p>痛点区 (Pain Point Section)</p>
 <p>标题: 你是否也曾这样浪费时间？</p>
 <p>内容： 左侧是一张长截图，模拟用户费力向上滚动的场景，配上一些内心独白气泡，如“我记得问过这个……”“天呐，怎么还没找到？”。</p>
@@ -135,22 +130,20 @@
 <p>① 秒级定位： 点击目录，瞬间回溯。</p>
 <p>② 思路连贯： 无需分心寻找，专注思考。</p>
 <p>③ 结构清晰： 对话脉络，一目了然。</p>
-<p>社交证明 (Social Proof)</p>
-<p>标题: 听听效率专家怎么说</p>
-<p>内容： 引用一两条虚拟的用户评价。</p>
-<p>“这绝对是AI重度使用者的必备神器！每周为我节省了至少一个小时的‘考古’时间。”</p>
-<p>— 李欣, 市场研究分析师</p>
+
 <p>最终行动号召 (Final CTA)</p>
 <p>标题: 准备好迎接更高效的AI体验了吗？</p>
 <p>CTA: “免费添加到 Chrome，即刻提升效率” 按钮。</p>
 <p>页脚 (Footer)</p>
 <p>内容: © 2025 Act-Nav, 隐私政策, 联系我们 (GitHub/Twitter链接)。</p>
-<p>9. 技术栈建议 (Suggested Tech Stack)</p>
+
+<h3>9. 技术栈</h3>
 <p>核心逻辑: TypeScript</p>
 <p>前端框架: React 或 Svelte (以轻量著称)</p>
 <p>CSS方案: Tailwind CSS</p>
 <p>构建工具: Vite</p>
-<p>10. 未来迭代方向 (Future Roadmap)</p>
+
+<h3>10. 未来迭代方向 (Future Roadmap)</h3>
 <p>V1.1:</p>
 <p>在目录侧边栏中增加关键词搜索功能。</p>
 <p>支持更多AI平台，如 Claude, Gemini, Perplexity。</p>
@@ -158,12 +151,6 @@
 <p>增加导出功能（将目录导出为Markdown大纲）。</p>
 <p>允许用户重命名目录中的问题条目。</p>
 <p>V2.0:</p>
-<p>探索跨设备的云同步功能。</p>
-<p>增加对话节点折叠/展开功能，形成思维导图模式。</p></div>
-</div>
-</body>
-</html>
-
 <p>探索跨设备的云同步功能。</p>
 <p>增加对话节点折叠/展开功能，形成思维导图模式。</p></div>
 </div>
