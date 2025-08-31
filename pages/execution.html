@@ -57,7 +57,7 @@
     <div class="container">
         <button class="back-btn" onclick="window.close()">← 返回主页</button>
         
-        <h1>🚀 解锁执行力--AI对话辅助目录插件开发总结</h1>
+        <h1>🚀 解锁执行力--AI智能对话助手插件开发总结</h1>
         
         <div class="content">
                 <h2>项目背景</h2>
@@ -79,30 +79,22 @@
             </div>
             
             <div class="content">
-                <h3>阶段二：AI 赋能（知识卡片）</h3>
+                <h3>阶段二：AI 赋能（生成博客推文）</h3>
                 <ul>
-                    <li><strong>知识卡片提炼：</strong>调用 SiliconFlow + DeepSeek-V3 模型，结合用户提问与 AI 回答，从完整对话生成 3–5 张卡片（标题 / 摘要 / 标签）。</li>
-                    <li><strong>统一格式：</strong>跨平台统一调用与输出格式，便于后续检索与归档。</li>
+                    <li><strong>知识卡片提炼：</strong>调用 SiliconFlow + DeepSeek-V3 模型，结合用户提问与 AI 回答，从完整对话生成 3–5 张卡片。</li>
+                    <li><strong>一键生成y：</strong>将要点转化为博客推文。</li>
                 </ul>
             </div>
 
-            <div class="content">
-                <h3>阶段三：存储与体验</h3>
-                <ul>
-                    <li><strong>Supabase 存储：</strong>卡片可保存、读取、更新；弹窗集中展示并支持编辑。</li>
-                    <li><strong>信息架构：</strong>侧边栏保留目录与“卡片数量提示”，弹窗作为卡片主视图。</li>
-                </ul>
-            </div>
 
             <div class="content">
                 <h2>技术亮点</h2>
                 <div class="grid">
                     <div class="pill">🧩 跨平台 DOM 适配器</div>
-                    <div class="pill">🔐 Supabase RLS 策略与表结构对齐</div>
                     <div class="pill">🆔 唯一 ID 生成（抗并发）</div>
-                    <div class="pill">🪄 提示词优化与上下文拼接</div>
+                    <div class="pill">🪄 提示词优化与要点提取</div>
                     <div class="pill">🧱 侧边栏 / 弹窗解耦，可扩展</div>
-                    <div class="pill">📦 统一数据模型（标题/摘要/标签/分类）</div>
+                    <div class="pill">📦 一键生成博客推文</div>
                 </div>
             </div>
 
